@@ -17,9 +17,11 @@ Current term for the Working Group Chairs is **March 1, 2026 - January 31, 2027*
 
 ## Meetings
 
-This working group meets **biweekly on Thursdays at 9:00AM PT** (USA Pacific Time; [Convert to local time zone](http://www.thetimezoneconverter.com/?t=9:00AM&tz=San%20Francisco)).
+This working group meets **every Thursday, alternating between 6:30AM and 9:00AM USA Pacific Time.** Please note the meeting links below will only work for those that have signed up for the working group.
 
-**[Join the Meeting](https://zoom-lfx.platform.linuxfoundation.org/meeting/95969855157?password=e1efcbf8-beb0-4c01-b9a8-0372c16d9431)** - Please note the meeting link will only work for those that have signed up for the working group.
+**[Join the 6:30AM PT Meeting](https://zoom-lfx.platform.linuxfoundation.org/meeting/95969855157?password=e1efcbf8-beb0-4c01-b9a8-0372c16d9431)** | *[Convert to local time zone](http://www.thetimezoneconverter.com/?t=6:30AM&tz=San%20Francisco).*
+
+**[Join the 9:00AM PT Meeting](https://zoom-lfx.platform.linuxfoundation.org/meeting/99263049290?password=0d215d68-8770-4220-b23d-126c322e9ebd)** | *[Convert to local time zone](http://www.thetimezoneconverter.com/?t=9:00AM&tz=San%20Francisco).*
 
 **Working Group Meetings are only open to AAIF members at this time.** Participants must be invited to join. 
 
