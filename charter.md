@@ -42,7 +42,7 @@ The work of this WG supports:
  How an agent represents that it is acting on behalf of a human, organization, role, team, service, or process; how those authorizations are delegated; and how far delegated authority extends.
 
 **Authorization and Consent Models**
- How an agent conveys what it is allowed to do, under what policy constraints, and what human consent, approval, or governance controls apply.
+ How an agent conveys what it is allowed to do, for how long, under what policy constraints, and what human consent, approval, or governance controls apply, including support for the short-lived, fine-grained authorization patterns often required for agents.
 
 **Trust Evaluation and Cross-Organizational Trust**
  How systems evaluate whether to trust an agent, including agents originating in another organization, and how to reason about whether the agent is authorized to take a requested action.
