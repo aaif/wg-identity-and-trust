@@ -67,6 +67,7 @@ The work of this WG supports:
 - Define a taxonomy of common Identity terms used across organizations
 - Understand the existing Agent Identity space including previously published positions from standards bodies and working groups.
 - Identify, and address gaps in existing bodies of work
+- Draft Identity Reference Architecture
 
 #### Planned Deliverables
 For each deliverable, define owner, format, and target date.
