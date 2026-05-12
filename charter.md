@@ -16,7 +16,6 @@ The Identity & Trust Working Group advances the Agentic AI Foundation's mission 
 
 #### Why this Working Group exists (given the breadth of organizations represented can we identify approaches based on our collectively)
 This Working Group was formed to address:
-Frame these not as questions. Focused on….. Solving instead of an open question. Problem space - interoperability issues
 
 - How do we represent the identity of an AI Agent within an organization and trust identities shared between organizations?
 - How do we represent agents who work on behalf of humans and/or execute processes?
@@ -24,7 +23,6 @@ Frame these not as questions. Focused on….. Solving instead of an open questio
 - How do we lower adoption barriers by global organizations at scale?
 - How do we avoid vendor lock-in?
 - How do we do this in a secure, auditable, observable way? [interactions with other WGs]
-- metadata?
 
 #### Alignment to Foundation Goals
 The work of this WG supports:
