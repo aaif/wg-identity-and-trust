@@ -20,9 +20,8 @@ This Working Group was formed to address:
 - How do we represent the identity of an AI Agent within an organization and trust identities shared between organizations?
 - How do we represent agents who work on behalf of humans and/or execute processes?
 - How do we authenticate agents and authorize their actions?
-- How do we lower adoption barriers by global organizations at scale?
-- How do we avoid vendor lock-in?
-- How do we do this in a secure, auditable, observable way? [interactions with other WGs]
+- How do we enable scalable adoption across global organizations while minimizing operational complexity and vendor lock-in?
+- How do we ensure the solution is secure, auditable, observable, and interoperable with other working groups?
 
 #### Alignment to Foundation Goals
 The work of this WG supports:
