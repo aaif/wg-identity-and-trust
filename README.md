@@ -17,34 +17,28 @@ Current term for the Working Group Chairs is **March 1, 2026 - January 31, 2027*
 
 ## Meetings
 
-This working group meets **every Thursday, alternating between 6:30AM and 9:00AM USA Pacific Time.** Please note the meeting links below will only work for those that have signed up for the working group.
+This working group meets **every Thursday, alternating between 6:30AM and 9:00AM USA Pacific Time.** 
 
 **[Join the 6:30AM PT Meeting](https://zoom-lfx.platform.linuxfoundation.org/meeting/95969855157?password=e1efcbf8-beb0-4c01-b9a8-0372c16d9431)** | *[Convert to local time zone](http://www.thetimezoneconverter.com/?t=6:30AM&tz=San%20Francisco).*
 
 **[Join the 9:00AM PT Meeting](https://zoom-lfx.platform.linuxfoundation.org/meeting/99263049290?password=0d215d68-8770-4220-b23d-126c322e9ebd)** | *[Convert to local time zone](http://www.thetimezoneconverter.com/?t=9:00AM&tz=San%20Francisco).*
 
-**Working Group Meetings are only open to AAIF members at this time.** Participants must be invited to join. 
-
-If someone from an AAIF member organization would like to join, please [sign up here](https://forms.gle/mqvEADnhCsmsvmC69) using your business email address.
-
 ## Meeting Agenda and Minutes
 
 [Running Notes Doc](https://docs.google.com/document/d/1JfVIQBbxpMT28poaEyAwnINXRC9ZuLPg5q08G6CjPCM/edit?usp=sharing)
 
-All meeting recordings and AI summaries can be found on your [LFX Individual Dashboard](openprofile.dev). Create a Linux Foundation (LFX) account to see all meetings, AI summaries, recordings, etc. all in one place.
+All meeting recordings and AI summaries can be found at [app.lfx.dev](https://app.lfx.dev). Create a Linux Foundation (LFX) account to see all meetings, AI summaries, recordings, etc. all in one place.
 
 ## Communication
 
-Reach out on the private working group mailing list: wg-identity-trust@lists.aaif.io
+Join the public working group [mailing list](https://lists.aaif.io/g/wg-identity-trust): wg-identity-trust@lists.aaif.io
 
-Join the private Working Group [Discord channel](https://discord.gg/BAzqNsGctj). **(Please do not share this link publicly; it is for Working Group members only).**
+Reach out on the public Working Group [Discord channel](https://discord.com/channels/1461090924791595243/1463637083737296979). New to the AAIF Discord Server? [Join here](https://discord.com/invite/9zTwngHAMy). 
 
 Need help? email: support@aaif.io.
 
 ## Join a Working Group
-The TC supports multiple technical working groups. **Working Groups are only open to AAIF members at this time.** Participants must be invited to join. 
-
-If someone from an AAIF member organization would like to join, please [sign up here](https://forms.gle/mqvEADnhCsmsvmC69) using your business email address.
+The TC supports multiple technical working groups. Working Groups are open to the public and cross-functional participation is actively encouraged. [View the full calendar of public meetings](https://zoom-lfx.platform.linuxfoundation.org/meetings/agentic-ai-foundation). 
 
 The current list of working groups are:
    - Accuracy & Reliability
@@ -54,6 +48,7 @@ The current list of working groups are:
    - Observability & Traceability
    - Security & Privacy
    - Workflows & Process Integration
+   - Taxonomy & Landscape (a Cross-Working Group Workstream)
 
 ## Commitment to Neutrality
 
