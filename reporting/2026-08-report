@@ -24,14 +24,17 @@ Delete these comments before submitting.
 
 ## Summary
 
-<!-- 2–3 sentences capturing the month at a glance. -->
+The Identity & Trust WG continued active development across three sub-working groups — Taxonomy, Reference Architecture, and Critical Use Cases — with meaningful convergence on core concepts including agent identity, delegation, action records, and consent receipts. The group evaluated NVIDIA's Secure Agent Workspace reference design as an external input to inform the reference architecture work. Foundational definitions and architectural assumptions are still being shaped before formal decision requests are raised to the TC.
 
 ## Progress Against Objectives
 
-<!-- What shipped, what advanced. Tie back to your stated objectives where possible. -->
+- **Taxonomy (sub-WG):** Continued to refine an identity taxonomy by defining trust, attestation, delegation, and identifier. While we targeted to have this work completed already, we are coordinating between us and the taxonmy WG and plan to complete an iteration of this work this month.
 
--
--
+- **Reference Architecture (sub-WG):** We have altered our approach to start with primitives first, build those into use cases, then use case build the broader reference arhitecture. The first primitive is for identity and a draft is being reviewed.
+
+- **Critical Use Cases (sub-WG):** Produced illustrative lifecycle use cases across three interaction patterns — Internal, B2B, and B2C — for agent naming, deployment, delegation, access control, audit/compliance, and retirement/revocation. Identified a detailed set of identity and trust functional requirements aligned with the WG mission statement, including verifiable delegation, dynamic per-request authorization, content-private action records with selective disclosure, and principal-attested revocation.
+
+- **External input:** We spent 2 sessions reviewing Uber's approach to agentic identity.
 
 ## Blockers and Risks
 
@@ -49,8 +52,8 @@ Delete these comments before submitting.
 
 <!-- Your top 2–3 priorities for the coming month. -->
 
-1.
-2.
+1. Identity primitive
+2. Identity and Trust taxonomy
 3.
 
 ## Metrics / Links
