@@ -34,22 +34,7 @@ The breakouts turn shared problem statements into concrete inputs and deliverabl
 | Reference Architecture | Describe the actors, components, trust relationships, and interoperability gaps needed to support agent identity and delegated authority. | Brian Malone | [Reference Architecture working document](https://docs.google.com/document/d/1nu4k_6zBgyEowLphuuaNrn6TnQbgeJm7FMkD7R-EXiA/edit?tab=t.0) |
 | Taxonomy coordination | Develop and socialize I&T terminology, and coordinate it with the cross-working-group Taxonomy & Landscape Workstream. | Liaisons: Julianna Mealin and Leonardo Galesky | [I&T Taxonomy whiteboard](https://docs.google.com/document/d/12EAOL69K7cxzN_kMpCoR17gaabJYbsdzlw6cNDdR8HY/edit?tab=t.0#heading=h.3ao8274xwzs8) and [Taxonomy & Landscape onboarding](https://github.com/aaif/ws-taxonomy-landscape/blob/main/ONBOARDING.md) |
 
-Matt Khouzam and Junjie Bu also participate in both I&T and the Taxonomy & Landscape Workstream, but are not designated as I&T taxonomy liaisons.
-
 Working documents are collaborative drafts, not approved specifications. When a proposal becomes stable, move it into this repository through an issue or pull request so it can be reviewed and cited reliably.
-
-## Current technical themes
-
-The group's discussions repeatedly return to these connected themes:
-
-- agent identity, authentication, and provenance;
-- delegation and authority chains, including recursive delegation;
-- authorization, consent, and risk-based human approval;
-- trust evaluation, agent discovery, and registry interoperability;
-- human-in-the-loop escalation and evidence of approval;
-- audit, accountability, revocation, and cross-domain interoperability.
-
-Current deliverables include an identity taxonomy, critical use cases, a survey of the landscape, and an identity reference architecture. Definitions and architecture should remain consistent with the use cases and should clearly identify gaps that cannot be addressed by existing standards.
 
 ## Frequently referenced work
 
