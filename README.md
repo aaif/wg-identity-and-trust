@@ -2,6 +2,8 @@
 
 For more information, review the [Working Group Charter](https://github.com/aaif/wg-identity-and-trust/blob/main/charter.md).
 
+New participants should start with the [Onboarding Guide](ONBOARDING.md). Proposed presentations and unresolved discussion items are tracked in [Outstanding Agenda Topics](AGENDA.md).
+
 ## Mission
 
 The Identity & Trust Working Group advances the Agentic AI Foundation's mission by identifying and promoting vendor-neutral, interoperable standards and viewpoints for AI agent identity, attestation, authentication, delegation, and authorization—so agents can be discovered across platforms, prove who they are, who they act for, what they are allowed to do, and what human approvals occurred—enabling secure, privacy-preserving, and auditable agent interactions across systems and organizational boundaries.
