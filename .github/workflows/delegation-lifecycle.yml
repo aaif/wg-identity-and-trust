@@ -1,0 +1,76 @@
+name: Delegation lifecycle test cases
+on:
+  pull_request:
+    paths: ['test-cases/delegation-lifecycle/**', '.github/workflows/delegation-lifecycle.yml']
+  push:
+    branches: [main]
+    paths: ['test-cases/delegation-lifecycle/**', '.github/workflows/delegation-lifecycle.yml']
+permissions:
+  contents: read
+env:
+  # agent-evidence-vectors release the cases were copied from; the verifier is
+  # installed at the same release.
+  VECTORS_VERSION: v0.19.0
+  CORPUS_DIGEST: 9aad96e66aa811b5b582f492289e9b1f5abe1de1b35d33f12c6a913883c86d05
+jobs:
+  verify:
+    runs-on: ubuntu-24.04
+    timeout-minutes: 10
+    steps:
+      - uses: actions/checkout@3d3c42e5aac5ba805825da76410c181273ba90b1 # v7.0.1
+        with:
+          persist-credentials: false
+      - uses: actions/setup-go@924ae3a1cded613372ab5595356fb5720e22ba16 # v6.5.0
+        with:
+          go-version: '1.24'
+          cache: false
+      - name: Install the pinned verifier
+        run: go install "github.com/probityai/agent-evidence-vectors/cmd/aee-verify@${VECTORS_VERSION}"
+      - name: The cases are the ones published in the pinned release
+        run: |
+          test "$(jq -r .corpusDigest test-cases/delegation-lifecycle/MANIFEST.json)" = "$CORPUS_DIGEST"
+      - name: Every case gets its expected outcome
+        run: '"$(go env GOPATH)/bin/aee-verify" test-cases/delegation-lifecycle'
+  recovery:
+    # The recovery cases are not copied here. The job fetches the
+    # agent-evidence-vectors module at one release and runs that release's
+    # verifier over that release's corpus, so the cases and the verifier
+    # always come from the same place.
+    runs-on: ubuntu-24.04
+    timeout-minutes: 10
+    env:
+      RECOVERY_VECTORS_VERSION: v0.24.0
+      RECOVERY_CORPUS_DIGEST: 84ba70d6a54bfc1badf80a54655814c089bd220e9d81637d2262ac84e2a63442
+      RECOVERY_CASES: >-
+        recovery-regrant recovery-grant-not-carried recovery-registry-only
+        recovery-software-mismatch recovery-after-compromise-no-revival
+        recovery-after-compromise-regrant recovery-history-follows
+        recovery-unclaimed-succession recovery-unclaimed-unrecorded
+        recovery-new-agent-asserted recovery-successor-responsible
+        recovery-successor-responsible-unrecorded
+      SUBAGENT_CASES: >-
+        subagent-parent-active subagent-parent-retired
+        subagent-respawned-after-parent-recovery subagent-not-carried-by-parent-recovery
+        subagent-succession-history-only subagent-succession-grant-not-carried
+        subagent-respawn-unrecorded
+    steps:
+      - uses: actions/setup-go@924ae3a1cded613372ab5595356fb5720e22ba16 # v6.5.0
+        with:
+          go-version: '1.24'
+          cache: false
+      - name: Fetch the pinned verifier and corpus
+        run: |
+          go install "github.com/probityai/agent-evidence-vectors/cmd/aee-verify@${RECOVERY_VECTORS_VERSION}"
+          dir="$(go mod download -json "github.com/probityai/agent-evidence-vectors@${RECOVERY_VECTORS_VERSION}" | jq -r .Dir)"
+          echo "CORPUS_DIR=${dir}/vectors-delegation-lifecycle" >> "$GITHUB_ENV"
+      - name: The corpus is the one in the pinned release, and it holds every recovery and sub-agent case
+        run: |
+          test "$(jq -r .corpusDigest "$CORPUS_DIR/MANIFEST.json")" = "$RECOVERY_CORPUS_DIGEST"
+          for id in $RECOVERY_CASES; do
+            jq -e --arg id "$id" '.vectors[] | select(.id == $id and .set == "recovery")' "$CORPUS_DIR/MANIFEST.json" > /dev/null
+          done
+          for id in $SUBAGENT_CASES; do
+            jq -e --arg id "$id" '.vectors[] | select(.id == $id and .set == "sub-agent")' "$CORPUS_DIR/MANIFEST.json" > /dev/null
+          done
+      - name: Every case gets its expected outcome
+        run: '"$(go env GOPATH)/bin/aee-verify" "$CORPUS_DIR"'
