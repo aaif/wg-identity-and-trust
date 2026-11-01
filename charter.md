@@ -2,12 +2,12 @@
 ## Identity & Trust
 
 ### 1. Working Group Name
-Working Group Name: Identity & Trust
-Short Name / Acronym: [I&T]
-Date Approved: [YYYY-MM-DD]
-Last Updated: [YYYY-MM-DD]
-Homepage / Repo (if applicable): [URL]
-Primary Contact (Chair/Lead): [Grant Miller, grantd.miller@gmail.com]
+* Working Group Name: Identity & Trust
+* Short Name / Acronym: I&T
+* Date Approved: 2026-05-12
+* Last Updated: 2026-10-09
+* Homepage / Repo (if applicable): [URL]
+* Primary Contact (Chair/Lead): Grant Miller, grantd.miller@gmail.com
 
 ### 2. Purpose and Mission
 
@@ -212,9 +212,8 @@ This charter may be amended by:
 ### 14. Ratification
 By approving this charter, the Working Group commits to operating transparently, in the open, and in alignment with foundation policies.
 
-- **Approved By:** [TOC / Governing Board / Steering Committee]
-- **Date:** [YYYY-MM-DD]
-- **Signatories (optional):** [Names/Titles]
+- **Approved By:** TC
+- **Date:** 2026-05-12
 
 ## Optional Appendix A: Role Descriptions
 
