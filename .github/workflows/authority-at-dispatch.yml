@@ -1,0 +1,45 @@
+name: Authority at dispatch comparison
+on:
+  pull_request:
+    paths: ['catalogue/**', '.github/workflows/authority-at-dispatch.yml']
+  push:
+    branches: [main]
+    paths: ['catalogue/**', '.github/workflows/authority-at-dispatch.yml']
+permissions:
+  contents: read
+env:
+  OBSERVER_COMMIT: 8892c6acdf4776ceecbbdfefe48026f316c6c1e0
+jobs:
+  compare:
+    runs-on: ubuntu-24.04
+    timeout-minutes: 15
+    steps:
+      - uses: actions/checkout@3d3c42e5aac5ba805825da76410c181273ba90b1
+        with:
+          persist-credentials: false
+      - uses: actions/setup-python@5fda3b95a4ea91299a34e894583c3862153e4b97
+        with:
+          python-version: '3.12'
+      - name: Install the pinned reader
+        run: |
+          git clone --filter=blob:none --no-checkout https://github.com/probityai/probity.git "$RUNNER_TEMP/observer"
+          git -C "$RUNNER_TEMP/observer" sparse-checkout set packages/agent-evidence-observer
+          git -C "$RUNNER_TEMP/observer" checkout --detach "$OBSERVER_COMMIT"
+          test "$(git -C "$RUNNER_TEMP/observer" rev-parse HEAD)" = "$OBSERVER_COMMIT"
+          python -m pip install -r "$RUNNER_TEMP/observer/packages/agent-evidence-observer/interop/authority-unreachable-2026-10-03/requirements.txt"
+      - name: Run the reference cases with the installed producer and reader
+        run: bash "$RUNNER_TEMP/observer/packages/agent-evidence-observer/interop/authority-unreachable-2026-10-03/verify_install.sh" "$RUNNER_TEMP/run" "$OBSERVER_COMMIT"
+      - name: Refuse submitted traces without the contract identifier
+        run: |
+          python - <<'PY'
+          import json, pathlib, sys
+          want = "https://probityai.github.io/agent-evidence-observer/contract/authority-at-dispatch/v1"
+          bad = []
+          for p in sorted(pathlib.Path("catalogue/authority-at-dispatch/traces").rglob("*.json")):
+              doc = json.loads(p.read_text(encoding="utf-8"))
+              rows = doc if isinstance(doc, list) else [doc]
+              bad += [str(p) for r in rows if (r.get("payload", r) if isinstance(r, dict) else {}).get("contractId") != want]
+          if bad:
+              sys.exit("traces without the v1 contract id: " + ", ".join(bad))
+          print("contract id present in every submitted trace")
+          PY
