@@ -10,7 +10,7 @@ Every trace submitted for this comparison writes:
 "contractId": "https://probityai.github.io/agent-evidence-observer/contract/authority-at-dispatch/v1"
 ```
 
-A reader refuses a trace that omits the identifier or names another version. A change to the required meaning of any field is a new version. The fields and their required meaning are in [CONTRACT.md](https://github.com/probityai/agent-evidence-observer/blob/c897659ba452bd2fc5a080531aa5bfadb72ad529/interop/authority-unreachable-2026-10-03/CONTRACT.md).
+A reader refuses a trace that omits the identifier or names another version. A change to the required meaning of any field is a new version. The fields and their required meaning are in [CONTRACT.md](https://github.com/probityai/probity/blob/8892c6acdf4776ceecbbdfefe48026f316c6c1e0/packages/agent-evidence-observer/interop/authority-unreachable-2026-10-03/CONTRACT.md).
 
 Authority evidence carries `evidenceAgeSeconds` (decision time minus the signed observation time) and `freshnessLimitSeconds` (the deployed limit), which Imran Siddique asked the comparison to retain on 3 October ([message 26](https://lists.aaif.io/g/wg-identity-trust/message/26)). A field a trace leaves unfilled is marked `not_applicable`, `not_emitted` or `not_measured`, kept apart as he asked on 6 October.
 

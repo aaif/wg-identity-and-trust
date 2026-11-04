@@ -8,7 +8,7 @@ on:
 permissions:
   contents: read
 env:
-  OBSERVER_COMMIT: c897659ba452bd2fc5a080531aa5bfadb72ad529
+  OBSERVER_COMMIT: 8892c6acdf4776ceecbbdfefe48026f316c6c1e0
 jobs:
   compare:
     runs-on: ubuntu-24.04
@@ -22,12 +22,13 @@ jobs:
           python-version: '3.12'
       - name: Install the pinned reader
         run: |
-          git clone --filter=blob:none https://github.com/probityai/agent-evidence-observer.git "$RUNNER_TEMP/observer"
+          git clone --filter=blob:none --no-checkout https://github.com/probityai/probity.git "$RUNNER_TEMP/observer"
+          git -C "$RUNNER_TEMP/observer" sparse-checkout set packages/agent-evidence-observer
           git -C "$RUNNER_TEMP/observer" checkout --detach "$OBSERVER_COMMIT"
           test "$(git -C "$RUNNER_TEMP/observer" rev-parse HEAD)" = "$OBSERVER_COMMIT"
-          python -m pip install -r "$RUNNER_TEMP/observer/interop/authority-unreachable-2026-10-03/requirements.txt"
+          python -m pip install -r "$RUNNER_TEMP/observer/packages/agent-evidence-observer/interop/authority-unreachable-2026-10-03/requirements.txt"
       - name: Run the reference cases with the installed producer and reader
-        run: bash "$RUNNER_TEMP/observer/interop/authority-unreachable-2026-10-03/verify_install.sh" "$RUNNER_TEMP/run" "$OBSERVER_COMMIT"
+        run: bash "$RUNNER_TEMP/observer/packages/agent-evidence-observer/interop/authority-unreachable-2026-10-03/verify_install.sh" "$RUNNER_TEMP/run" "$OBSERVER_COMMIT"
       - name: Refuse submitted traces without the contract identifier
         run: |
           python - <<'PY'
