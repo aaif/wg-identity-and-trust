@@ -11,14 +11,17 @@ chairs:
 
 # Agent Identity Primitives
 
-**Status:** Draft
-**Version:** 0.1
-**Date:** 2026-10-21
-**Working Group:** Identity & Trust, Agentic AI Foundation
-**Chairs:** Grant Miller (IBM), Alper Dedeoglu (SAP SE)
-**Reference Architecture Lead:** Brian Malone
-**Contributors:** Hiroshi Yamakawa (AI Alignment Network (ALIGN), JAPAN), Naveed Ihsanullah (Identity Digital), Chris Leal (Proofable)
-*(Add your name and affiliation here when you open your first PR)*
+| | |
+|---|---|
+| **Status** | Draft |
+| **Version** | 0.1 |
+| **Date** | 2026-10-21 |
+| **Working Group** | Identity & Trust, Agentic AI Foundation |
+| **Chairs** | Grant Miller (IBM), Alper Dedeoglu (SAP SE) |
+| **Workstream Lead** | Brian Malone |
+| **Contributors** | Hiroshi Yamakawa (AI Alignment Network (ALIGN), JAPAN)<br>Marc Molas Carol (Identity Attestation - MintID)<br>Filip Blagojević (Apex Fusion Foundation)<br>Yoshiyuki Tabata (Hitachi, Ltd.)<br>Julianna Mealin (interop.io) |
+
+*Add your name and affiliation to the Contributors row when you open your first PR.*
 
 ---
 
