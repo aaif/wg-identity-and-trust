@@ -10,3 +10,7 @@ This file tracks proposed Identity & Trust Working Group presentations and unres
 - Link the resulting notes or artifact so future participants can find the outcome.
 
 ## Presentation queue
+
+| Topic | Owner | Desired outcome | Status | Artifact |
+|---|---|---|---|---|
+| Round 2 records: baseline mapping for the Radiolaria reference release, and a machine-readable case record | Vlad Kostitsyn / Alakris | Design feedback on the record shape, then a documented decision on the round's record format | Proposed - needs a Thursday slot (15 min) | [wg-identity-and-trust#13 comment](https://github.com/aaif/wg-identity-and-trust/issues/13), [replay and schema bundle](https://github.com/wlad232/aaif-round2-baseline) |
