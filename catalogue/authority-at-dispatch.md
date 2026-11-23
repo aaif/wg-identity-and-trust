@@ -32,7 +32,7 @@ The six cases are the ones proposed in [message 14](https://lists.aaif.io/g/wg-i
 | Implementation | Record | State |
 | --- | --- | --- |
 | MintID | Operator traces at `public-v2026-10-07` and `public-v2026-10-08.2`, and an independent testnet run of the same trace at `public-v2026-10-08.2` | Decisions measured; committed effect outside the implementation |
-| Proofable | `aaif-e1217327a-20261008` at `proofable/docs` `9851059` | Decisions measured; 11 disclosed envelopes verify from the published bytes |
+| Proofable | The 2 November packet at `proofable/docs` `4d6a38f` (8 of 8 cases; 15 portable proofs verify offline; the `JOB_AUTHORITY_REVOKED` stop is recorded), with the 8 October record `aaif-e1217327a-20261008` at `9851059` kept beside it | Decisions measured; 15 disclosed envelopes verify from the published bytes |
 | Alakris | `aaif-publication-reference` `ebd9dcf` and its rerun of the reference cases | Reference cases reproduced; deployed path not measured |
 
 ## Running the check
