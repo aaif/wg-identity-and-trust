@@ -10,3 +10,5 @@ This file tracks proposed Identity & Trust Working Group presentations and unres
 - Link the resulting notes or artifact so future participants can find the outcome.
 
 ## Presentation queue
+
+- **Authority at dispatch: the comparison record for issue 13, run live** - Owner: Sankalp Gilda. Desired outcome: design feedback on the versioned contract identifier every trace writes, and agreement on the case-to-record mapping in `catalogue/authority-at-dispatch.md`. Content: the delegated-authority cases mapped onto one comparison record, the reader refusing a trace without the contract identifier or with stale evidence, and the MintID, Proofable and Alakris rows. 10 to 15 minutes. Proposed date: 15 October 2026. Status: proposed.

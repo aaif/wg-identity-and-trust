@@ -1,0 +1,67 @@
+name: Authority at dispatch comparison
+on:
+  pull_request:
+    paths: ['catalogue/**', '.github/workflows/authority-at-dispatch.yml']
+  push:
+    branches: [main]
+    paths: ['catalogue/**', '.github/workflows/authority-at-dispatch.yml']
+permissions:
+  contents: read
+env:
+  CONTRACT_ID: https://probityai.github.io/agent-evidence-observer/contract/authority-at-dispatch/v1
+  PROOFABLE_COMMIT: ef99151127bed218b6a8a9052a90665c91f524da
+  PROOFABLE_SUITE: public/evidence/aaif/authority-at-dispatch/2026-11-23-suite
+jobs:
+  compare:
+    runs-on: ubuntu-24.04
+    timeout-minutes: 15
+    steps:
+      - uses: actions/checkout@3d3c42e5aac5ba805825da76410c181273ba90b1
+        with:
+          persist-credentials: false
+      - uses: actions/setup-python@5fda3b95a4ea91299a34e894583c3862153e4b97
+        with:
+          python-version: '3.12'
+      - name: Install the pinned reader
+        run: python -m pip install -r catalogue/authority-at-dispatch/requirements.txt
+      - name: Run the reference cases
+        run: python -m agent_evidence_vectors.authoritydispatch
+      - name: Read each Proofable record
+        run: |
+          git clone --filter=blob:none --no-checkout https://github.com/proofable/docs.git "$RUNNER_TEMP/proofable"
+          git -C "$RUNNER_TEMP/proofable" sparse-checkout set "$PROOFABLE_SUITE"
+          git -C "$RUNNER_TEMP/proofable" checkout --detach "$PROOFABLE_COMMIT"
+          cd "$RUNNER_TEMP/proofable/$PROOFABLE_SUITE" && sha256sum -c SHA256SUMS
+          python - <<'PY'
+          import json, os, pathlib, subprocess, sys
+          root = pathlib.Path(os.environ["RUNNER_TEMP"], "proofable", os.environ["PROOFABLE_SUITE"], "cases")
+          rows, failed = [], []
+          for record in sorted(root.glob("*/record.json")):
+              out = subprocess.run([sys.executable, "-m", "agent_evidence_vectors.authoritydispatch",
+                                    str(record), "--json"], capture_output=True, text=True)
+              if out.returncode not in (0, 1):
+                  failed.append(record.parent.name)
+                  continue
+              answer = json.loads(out.stdout)
+              rows.append(f"| {record.parent.name} | {answer['decision']} | {answer['reason']} |")
+          table = "\n".join(["| record | decision | reason |", "| --- | --- | --- |", *rows])
+          print(table)
+          with open(os.environ["GITHUB_STEP_SUMMARY"], "a", encoding="utf-8") as summary:
+              summary.write(f"Proofable records at {os.environ['PROOFABLE_COMMIT'][:8]}\n\n{table}\n")
+          if failed or not rows:
+              sys.exit("reader did not answer: " + ", ".join(failed or ["no records found"]))
+          PY
+      - name: Refuse submitted traces without the contract identifier
+        run: |
+          python - <<'PY'
+          import json, os, pathlib, sys
+          want = os.environ["CONTRACT_ID"]
+          bad = []
+          for p in sorted(pathlib.Path("catalogue/authority-at-dispatch/traces").rglob("*.json")):
+              doc = json.loads(p.read_text(encoding="utf-8"))
+              rows = doc if isinstance(doc, list) else [doc]
+              bad += [str(p) for r in rows if (r.get("payload", r) if isinstance(r, dict) else {}).get("contractId") != want]
+          if bad:
+              sys.exit("traces without the v1 contract id: " + ", ".join(bad))
+          print("contract id present in every submitted trace")
+          PY
